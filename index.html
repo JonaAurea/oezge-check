@@ -30,12 +30,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;c
 .nr.red{background:#fde8e8;color:#c0392b}
 .nr.green{background:#e8f8e8;color:#27ae60}
 .nr.warn{background:#fef3e0;color:#d4850a}
+.nr.gap{background:#f0e8ff;color:#7b5ea7}
+.nr.study{background:#e8f0ff;color:#3d6daa}
 .entry-title{flex:1;min-width:0}
 .entry-title .name{font-size:13px;font-weight:600}
 .entry-title .sub{font-size:11px;color:#888}
 .badge{font-size:10px;padding:3px 10px;border-radius:8px;font-weight:600;white-space:nowrap}
 .badge.red{background:#fde8e8;color:#c0392b}
 .badge.warn{background:#fef3e0;color:#d4850a}
+.badge.gap{background:#f0e8ff;color:#7b5ea7}
+.badge.study{background:#e8f0ff;color:#3d6daa}
 .arrow{font-size:13px;color:#bbb;transition:transform 0.2s}
 .arrow.open{transform:rotate(90deg)}
 .entry-body{display:none;border-top:1px solid #e8e8e4;padding:14px}
@@ -56,6 +60,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;c
 .verdict{margin-top:12px;padding:10px 14px;border-radius:10px;font-size:12px;font-weight:600;line-height:1.5}
 .verdict.red{background:#fde8e8;color:#c0392b;border:1px solid #f0b8b8}
 .verdict.warn{background:#fef3e0;color:#a36800;border:1px solid #e6c558}
+.verdict.gap{background:#f0e8ff;color:#5a3d8a;border:1px solid #d0c0f0}
+.verdict.study{background:#e8f0ff;color:#2a5090;border:1px solid #b0c8e8}
 .questions{margin-top:12px;padding:12px 14px;border-radius:10px;background:#f0f0ff;border:1px solid #c8c8f0;font-size:12px;color:#4a4a8a;line-height:1.7}
 .questions strong{font-weight:600;display:block;margin-bottom:6px}
 .questions ol{margin:0 0 0 18px;padding:0}
@@ -80,6 +86,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;c
 .btn-wa:hover{background:#1da851}
 .btn-expand{background:#fff;color:#333;border:1px solid #ccc!important}
 .btn-expand:hover{background:#f0f0ee}
+.gap-divider{background:#f8f0ff;border:1px dashed #c8b0e8;border-radius:12px;margin-bottom:12px;padding:14px 18px;display:flex;align-items:center;gap:12px}
+.gap-divider .gap-icon{width:28px;height:28px;border-radius:50%;background:#f0e8ff;color:#7b5ea7;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.gap-divider .gap-text{flex:1;font-size:12px;color:#7b5ea7;line-height:1.5}
+.gap-divider .gap-text strong{font-weight:600}
+.study-note{background:#e8f0ff;border:1px solid #b0c8e8;border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:12px;color:#2a5090;line-height:1.6}
+.study-note strong{font-weight:600}
 </style>
 </head>
 <body>
@@ -104,7 +116,11 @@ I have compared your CV with your official SGK Hizmet Dökümü (social security
 </div>
 
 <div class="reg-warn">
-<strong>Important — Regulated profession:</strong> Landscape Architect is a protected title in Germany. You need chamber registration (Architektenkammer) to use it. Your ZAB evaluation (Bachelor level) alone is not sufficient. The so-called "Experience Pillar" (Erfahrungssäule) does not apply to regulated professions.
+<strong>Important — Regulated profession:</strong> Landscape Architect is a protected title in Germany. You need chamber registration (Architektenkammer) to use it. Your ZAB evaluation (Bachelor level) alone is not sufficient. The "Experience Pillar" (Erfahrungssäule) does not apply to regulated professions.
+</div>
+
+<div class="study-note">
+<strong>Your degree (verified from official diploma):</strong> Akdeniz Üniversitesi, Faculty of Architecture / Landscape Architecture. 4-year full-time program. Graduation: 07 July 2022. Study period: approx. September 2018 – July 2022. ZAB evaluation confirms Bachelor-level equivalence.
 </div>
 
 <div class="stats">
@@ -125,6 +141,7 @@ I have compared your CV with your official SGK Hizmet Dökümü (social security
 <ol>
 <li>What was Palmiye Peyzaj? You worked there for 14 days as a Landscape Architect — why is this not in your CV?</li>
 <li>What was the self-employment (Bağ-Kur)? You were registered for almost a full year as a gift shop retailer. What exactly was that? Why is it not in your CV?</li>
+<li>Were you running a gift shop while working at Edulog at the same time? Both are registered in the same period (Apr 2023–Apr 2024).</li>
 <li>Are there any other jobs or activities that are neither in your CV nor in the SGK?</li>
 </ol>
 </div>
@@ -151,8 +168,11 @@ I have compared your CV with your official SGK Hizmet Dökümü (social security
 </div>
 
 <script>
-const data=[
-{nr:1,cvE:"Zen Mimarlık",cvP:"01 Jun–03 Aug 2019",cvD:64,cvJ:"Intern, Landscape Architecture",sgkE:"— NO ENTRY —",sgkP:"—",sgkD:0,sgkJ:"—",sgkC:"—",
+const entries=[
+
+{type:"study",label:"University studies",period:"Sep 2018 – Jul 2022",days:"4 years",note:"Akdeniz Üniversitesi, Landscape Architecture (verified from official diploma). Graduation: 07.07.2022."},
+
+{type:"entry",nr:1,cvE:"Zen Mimarlık",cvP:"01 Jun–03 Aug 2019",cvD:64,cvJ:"Intern, Landscape Architecture",sgkE:"— NO ENTRY —",sgkP:"—",sgkD:0,sgkJ:"—",sgkC:"—",
 verdict:"No SGK record exists. Zen Mimarlık does not appear in the SGK system.",
 questions:[
 "Do you have an internship report (staj raporu) from Zen Mimarlık?",
@@ -161,7 +181,7 @@ questions:[
 "Was this an official mandatory internship from your university? If yes, do you have proof from the university?"
 ],level:"red"},
 
-{nr:2,cvE:"Antalya Süs Bitkileri A.Ş.",cvP:"01 Jun–03 Aug 2019",cvD:64,cvJ:"Intern, Landscape Architecture",sgkE:"— NO ENTRY —",sgkP:"—",sgkD:0,sgkJ:"—",sgkC:"—",
+{type:"entry",nr:2,cvE:"Antalya Süs Bitkileri A.Ş.",cvP:"01 Jun–03 Aug 2019",cvD:64,cvJ:"Intern, Landscape Architecture",sgkE:"— NO ENTRY —",sgkP:"—",sgkD:0,sgkJ:"—",sgkC:"—",
 verdict:"No SGK record. The time period is also identical to #1 — you cannot have worked at two employers at the same time.",
 questions:[
 "Do you have an internship report (staj raporu) from Antalya Süs Bitkileri?",
@@ -170,7 +190,9 @@ questions:[
 "Were these perhaps two parts of the same internship? Please explain exactly how this was organized."
 ],level:"red"},
 
-{nr:3,cvE:"Reis Tarım / Antalya",cvP:"20 Apr–25 Nov 2020",cvD:220,cvJ:"Sales Manager",sgkE:"Servet Karakurt",sgkP:"05–31 Oct 2020",sgkD:27,sgkJ:"Gardener (Çiçek Yetiştirme İşçisi)",sgkC:"6113.08",
+{type:"gap",period:"04 Aug 2019 – 04 Oct 2020",days:"~428 days",note:"No SGK entry. You were still studying — but your CV claims you started at Reis Tarım in April 2020. The SGK shows nothing until October 2020."},
+
+{type:"entry",nr:3,cvE:"Reis Tarım / Antalya",cvP:"20 Apr–25 Nov 2020",cvD:220,cvJ:"Sales Manager",sgkE:"Servet Karakurt",sgkP:"05–31 Oct 2020",sgkD:27,sgkJ:"Gardener (Çiçek Yetiştirme İşçisi)",sgkC:"6113.08",
 verdict:"Different employer (Servet Karakurt instead of Reis Tarım), different profession (Gardener instead of Sales), 193 days missing.",
 questions:[
 "What exactly did you do at Reis Tarım? Describe your tasks in as much detail as possible.",
@@ -180,7 +202,9 @@ questions:[
 "Why are you registered as a Gardener (Çiçek Yetiştirme İşçisi) and not as a Sales Manager?"
 ],level:"red"},
 
-{nr:4,cvE:"Zen Mimarlık",cvP:"15 May–02 Nov 2021",cvD:172,cvJ:"Intern, Landscape Architecture",sgkE:"Limtur Seyahat Otelcilik Turizm",sgkP:"20–26 Jul 2021",sgkD:2,sgkJ:"Waiter/Waitress (Servis Elemanı)",sgkC:"5131.02",
+{type:"gap",period:"01 Nov 2020 – 19 Jul 2021",days:"~261 days",note:"No SGK entry. Still studying. Your CV claims you started at Zen Mimarlık in May 2021 — the SGK shows nothing until July 2021."},
+
+{type:"entry",nr:4,cvE:"Zen Mimarlık",cvP:"15 May–02 Nov 2021",cvD:172,cvJ:"Intern, Landscape Architecture",sgkE:"Limtur Seyahat Otelcilik Turizm",sgkP:"20–26 Jul 2021",sgkD:2,sgkJ:"Waiter/Waitress (Servis Elemanı)",sgkC:"5131.02",
 verdict:"Completely different employer (Tourism/Hotel company) and profession (Waitress). 170 days missing.",
 questions:[
 "You claim 172 days at Zen Mimarlık — but the SGK shows only 2 days at a tourism company as a waitress. What is true here?",
@@ -190,17 +214,22 @@ questions:[
 "Can you contact Zen Mimarlık and ask why you were never registered there?"
 ],level:"red"},
 
-{nr:5,cvE:"TOKI / Konya",cvP:"01 Jun–02 Jul 2022",cvD:32,cvJ:"Project Lead, Landscape Architect",sgkE:"Tekin Makine Insaat (TOKI subcontractor)",sgkP:"29 Jun–06 Jul 2022",sgkD:8,sgkJ:"Landscape Architect (Peyzaj Mimarı)",sgkC:"2162.01",
-verdict:"Profession matches (Peyzaj Mimarı) — this is positive. But only 8 instead of 32 days are verifiable.",
+{type:"gap",period:"27 Jul 2021 – 19 Jun 2022",days:"~328 days",note:"No SGK entry. Still studying (final year). You graduated on 07.07.2022."},
+
+{type:"entry",nr:5,cvE:"TOKI / Konya",cvP:"01 Jun–02 Jul 2022",cvD:32,cvJ:"Project Lead, Landscape Architect",sgkE:"Tekin Makine Insaat (TOKI subcontractor)",sgkP:"29 Jun–06 Jul 2022",sgkD:8,sgkJ:"Landscape Architect (Peyzaj Mimarı)",sgkC:"2162.01",
+verdict:"Profession matches (Peyzaj Mimarı) — this is positive. But only 8 instead of 32 days are verifiable. Note: Palmiye Peyzaj (14 days, also as LA) overlaps with this period (20 Jun–03 Jul).",
 questions:[
 "The occupation code matches here — you were actually registered as a Landscape Architect. That's good.",
 "However: you claim 32 days, the SGK shows only 8 days. Can you contact your employer (Tekin Makine Insaat) and ask why only 8 days were registered?",
 "What exactly did you do on this TOKI project? Describe your specific tasks.",
 "Do you have an employer evaluation or reference letter (referans mektubu) from there? That would be very helpful.",
-"Do you have photos, plans, or other evidence of your work there?"
+"Do you have photos, plans, or other evidence of your work there?",
+"Note: During the same period, the SGK also shows you at Palmiye Peyzaj (20 Jun–03 Jul, 14 days as LA). Were you working two jobs simultaneously?"
 ],level:"warn"},
 
-{nr:6,cvE:"Vogue Hotel Supreme / Bodrum",cvP:"10 Jul–Dec 2023",cvD:175,cvJ:"Team Lead, Landscape Architecture",sgkE:"BYT Peyzaj Hafriyat",sgkP:"12 Aug–06 Oct 2022",sgkD:55,sgkJ:"Landscape Architect (Peyzaj Mimarı)",sgkC:"2162.01",
+{type:"gap",period:"07 Jul 2022 – 11 Aug 2022",days:"~36 days",note:"Graduation was 07.07.2022. No SGK entry for about 5 weeks after graduation."},
+
+{type:"entry",nr:6,cvE:"Vogue Hotel Supreme / Bodrum",cvP:"10 Jul–Dec 2023",cvD:175,cvJ:"Team Lead, Landscape Architecture",sgkE:"BYT Peyzaj Hafriyat",sgkP:"12 Aug–06 Oct 2022",sgkD:55,sgkJ:"Landscape Architect (Peyzaj Mimarı)",sgkC:"2162.01",
 verdict:"The year doesn't match: SGK says 2022, you wrote 2023. The employer name is also different (BYT Peyzaj, not Vogue Hotel). 120 days missing.",
 questions:[
 "Your CV says July to December 2023 — the SGK shows August to October 2022. What is the correct year?",
@@ -211,7 +240,9 @@ questions:[
 "Do you have photos or project documentation of your work there?"
 ],level:"red"},
 
-{nr:7,cvE:"Edulog / Adana",cvP:"07 Apr 2023–12 Apr 2024",cvD:371,cvJ:"VR Project Supervisor",sgkE:"Edulog Eğitim Arge Bilişim",sgkP:"29 Apr 2023–02 Apr 2024",sgkD:340,sgkJ:"Animation Programmer (Animasyon Programcısı)",sgkC:"2513.03",
+{type:"gap",period:"07 Oct 2022 – 28 Apr 2023",days:"~204 days (~7 months)",note:"No SGK entry for almost 7 months after BYT Peyzaj. What were you doing during this time? This is after your graduation — you should have been working."},
+
+{type:"entry",nr:7,cvE:"Edulog / Adana",cvP:"07 Apr 2023–12 Apr 2024",cvD:371,cvJ:"VR Project Supervisor",sgkE:"Edulog Eğitim Arge Bilişim",sgkP:"29 Apr 2023–02 Apr 2024",sgkD:340,sgkJ:"Animation Programmer (Animasyon Programcısı)",sgkC:"2513.03",
 verdict:"Employer matches. But the SGK registers you as an IT/Multimedia specialist (Animasyon Programcısı, code 2513.03), NOT as a Landscape Architect.",
 questions:[
 "What exactly did you do at Edulog? Describe your daily tasks in as much detail as possible.",
@@ -219,13 +250,62 @@ questions:[
 "Edulog is an IT company (Bilişim = Information Technology). The SGK registered you as 'Animasyon Programcısı' (Animation Programmer) — this is ISCO code 2513 (Web and Multimedia Developers). Can you explain why?",
 "Did you program software, create 3D models, make animations — or something else entirely?",
 "Do you have a reference letter or project description from Edulog?"
-],level:"red"}
+],level:"red"},
+
+{type:"gap",period:"03 Apr 2024 – today (28 Apr 2026)",days:"~757 days (over 2 years!)",note:"No SGK entry for over 2 years. This is the longest gap. What have you been doing since Edulog? Why is there no employment for over 2 years?"}
 ];
 
 const container=document.getElementById('entries');
 let allOpen=false;
+let noteCount=0;
 
-data.forEach((d,i)=>{
+entries.forEach((d,idx)=>{
+if(d.type==='study'){
+const el=document.createElement('div');
+el.className='gap-divider';
+el.style.background='#e8f0ff';
+el.style.borderColor='#b0c8e8';
+el.innerHTML=`<div class="gap-icon" style="background:#e8f0ff;color:#3d6daa">&#127891;</div>
+<div class="gap-text" style="color:#2a5090"><strong>${d.label} (${d.period})</strong><br>${d.note}</div>`;
+container.appendChild(el);
+return;
+}
+
+if(d.type==='gap'){
+const noteId='note-gap-'+idx;
+const el=document.createElement('div');
+el.className='entry';
+el.style.borderColor='#d0c0f0';
+el.innerHTML=`
+<div class="entry-header" onclick="toggle('g${idx}')">
+<div class="nr gap">&#8943;</div>
+<div class="entry-title">
+<div class="name" style="color:#7b5ea7">GAP — No SGK entry</div>
+<div class="sub">${d.period} — ${d.days}</div>
+</div>
+<div class="badge gap">${d.days}</div>
+<div class="arrow" id="arrow-g${idx}">▶</div>
+</div>
+<div class="entry-body" id="body-g${idx}">
+<div class="verdict gap">${d.note}</div>
+<div class="questions">
+<strong>My questions for you:</strong>
+<ol>
+<li>What were you doing during this period?</li>
+<li>Were you working without official registration (informal / off the books)?</li>
+<li>Were you looking for work? If yes, can you show evidence (applications, emails)?</li>
+</ol>
+</div>
+<div class="note-area">
+<label>Your answer / explanation:</label>
+<textarea id="${noteId}" placeholder="Please explain what you were doing during this time..."></textarea>
+</div>
+</div>`;
+container.appendChild(el);
+return;
+}
+
+const i=d.nr-1;
 const sgkClass=d.level==='warn'?'sgk-ok':'sgk';
 const qHTML=d.questions.map(q=>'<li>'+q+'</li>').join('');
 const el=document.createElement('div');
@@ -277,28 +357,42 @@ document.getElementById('arrow-'+i).classList.toggle('open');
 
 function toggleAll(){
 allOpen=!allOpen;
-data.forEach((_,i)=>{
-const b=document.getElementById('body-'+i);
-const a=document.getElementById('arrow-'+i);
-if(allOpen){b.classList.add('open');a.classList.add('open')}
-else{b.classList.remove('open');a.classList.remove('open')}
-});
+document.querySelectorAll('.entry-body').forEach(b=>allOpen?b.classList.add('open'):b.classList.remove('open'));
+document.querySelectorAll('.arrow').forEach(a=>allOpen?a.classList.add('open'):a.classList.remove('open'));
 }
 
 function sendWhatsApp(){
 let txt="*CV vs. SGK — My Answers*\n_Özge Övelek_\n\n";
 let hasAnswers=false;
-data.forEach((d,i)=>{
-const n=document.getElementById('note-'+i).value.trim();
-txt+=`*#${d.nr} ${d.cvE}*\n`;
+
+for(let i=0;i<7;i++){
+const el=document.getElementById('note-'+i);
+if(el){
+const n=el.value.trim();
+const e=entries.find(x=>x.nr===i+1);
+txt+=`*#${i+1} ${e?e.cvE:''}*\n`;
 if(n){txt+=n+'\n\n';hasAnswers=true;}
 else{txt+='_(no answer)_\n\n';}
-});
-const extra=document.getElementById('note-extra').value.trim();
-if(extra){
-txt+=`*Additional SGK entries:*\n${extra}\n\n`;
+}
+}
+
+document.querySelectorAll('[id^="note-gap-"]').forEach(el=>{
+const n=el.value.trim();
+if(n){
+txt+=`*Gap period:*\n${n}\n\n`;
 hasAnswers=true;
 }
+});
+
+const extra=document.getElementById('note-extra');
+if(extra){
+const n=extra.value.trim();
+if(n){
+txt+=`*Additional SGK entries:*\n${n}\n\n`;
+hasAnswers=true;
+}
+}
+
 if(!hasAnswers){
 alert('Please fill in at least one answer field before sending.');
 return;
